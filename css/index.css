@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+:root {
+  --light-blue: #30C5ED;
+  --skin-color: #F7DDAA;
+  --light-brown: #B79660;
+  --dark-blue: #CD818C;
+  --rose: #08203A;
+  --font-main: "Open Sans";
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-image: url('../images/background.png');
+  background-repeat: no-repeat;
+}
+
+.bem-vindo {
+  display: block;
+  font-size: 2.5em;
+  text-align: center;
+  margin-top: 50px;
+  color: var(--skin-color);
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 70vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 600px;
+  height: 250px;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+.menu-items {
+  display: block;
+  color: #000;
+  background-color: var(--light-blue);
+  font-weight: 700;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.logo {
+  position: absolute;
+  left: 20px;
+  bottom: 0;
+}
