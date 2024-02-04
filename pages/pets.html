@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema Crech'Au - Cuidadores</title>
+  <link rel="stylesheet" href="../css/pets.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+  <div class="menu">
+    <h1 class="pets">Pets</h1>
+    <div class="campo-de-busca">
+      <input id="inSearch" class="caixa-de-pesquisa" type="text" placeholder="Raça">
+      <img id="btSearch" class="botao-buscar" src="../images/search.svg" alt="Buscar...">
+      <select class="filtro" name="pet" id="selectPet">
+        <option value="">Filtrar por</option>
+        <option value="novo">Menor idade</option>
+        <option value="novo">Maior idade</option>
+      </select>
+    </div>
+    <button id="btCadastrar" class="botao-cadastrar">Cadastrar novo pet</button>
+  </div>
+
+  <div id="quadro" class="quadro">
+    <!--cartas ficam aqui-->
+  </div>
+  <script src="../js/pets.js"></script>
+</html>
