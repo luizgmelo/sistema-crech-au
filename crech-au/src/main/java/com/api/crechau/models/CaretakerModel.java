@@ -16,7 +16,9 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 public class CaretakerModel implements Serializable {
+
     private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
@@ -26,12 +28,14 @@ public class CaretakerModel implements Serializable {
     private String gender;
     @Column(nullable = false, length = 11)
     private String phoneNumber;
+    @Column(length = 100)
+    private String photoPath;
 
-    public CaretakerModel(CaretakerRecordDto recordDto){
-        this.name = recordDto.name();
-        this.gender = recordDto.gender();
-        this.phoneNumber = recordDto.phoneNumber();
+    public CaretakerModel(CaretakerRecordDto dto){
+        this.name = dto.name();
+        this.gender = dto.gender();
+        this.phoneNumber = dto.phoneNumber();
+        this.photoPath = dto.photoPath();
     }
-
 
 }

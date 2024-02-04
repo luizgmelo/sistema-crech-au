@@ -4,6 +4,7 @@ import com.api.crechau.dtos.CaretakerRecordDto;
 import com.api.crechau.models.CaretakerModel;
 import com.api.crechau.services.CaretakerService;
 import jakarta.validation.Valid;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -40,4 +41,25 @@ public class CaretakerController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error: Caretaker not found.");
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> updateCaretaker(@RequestBody @Valid CaretakerRecordDto recordDto,
+                                                  @PathVariable(value = "id") UUID id){
+        Optional<CaretakerModel> caretakerModelOptional = caretakerService.findById(id);
+        if (caretakerModelOptional.isPresent()){
+            var caretakerModel = caretakerModelOptional.get();
+            BeanUtils.copyProperties(recordDto, caretakerModel);
+            return ResponseEntity.status(HttpStatus.OK).body(caretakerService.save(caretakerModel));
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error: Caretaker not found.");
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deleteCaretaker(@PathVariable(value = "id") UUID id){
+        Optional<CaretakerModel> caretakerModelOptional = caretakerService.findById(id);
+        if (caretakerModelOptional.isPresent()){
+            caretakerService.delete(caretakerModelOptional.get());
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Caretaker deletado com sucesso.");
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error: Caretaker not found.");
+    }
 }
