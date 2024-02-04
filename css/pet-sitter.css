@@ -1,0 +1,54 @@
+@import url("variables.css");
+
+.menu {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+}
+
+.campo-de-busca {
+  display: flex;
+  height: 30px;
+}
+
+.caixa-de-pesquisa {
+  text-indent: 5px;
+}
+
+.botao-buscar {
+  background-color: var(--rose);
+  cursor: pointer;
+}
+
+.botao-cadastrar {
+  font-size: 1.1em;
+  font-weight: bold;
+  background-color: var(--rose);
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.quadro {
+  width: 700px;
+  display: flex;
+  justify-content: left;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.carta {
+  width: 150px;
+  margin: 5px;
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.carta-imagem {
+  width: 90px;
+  height: 90px;
+}
