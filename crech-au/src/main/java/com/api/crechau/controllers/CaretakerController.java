@@ -1,8 +1,10 @@
 package com.api.crechau.controllers;
 
 import com.api.crechau.dtos.CaretakerRecordDto;
+import com.api.crechau.exceptions.ResourceNotFoundException;
 import com.api.crechau.models.CaretakerModel;
 import com.api.crechau.services.CaretakerService;
+import com.api.crechau.utils.ApiGlobalResponseDto;
 import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,44 +24,34 @@ public class CaretakerController {
     CaretakerService caretakerService;
 
     @PostMapping
-    public ResponseEntity<Object> saveCaretaker(@RequestBody @Valid CaretakerRecordDto recordDto){
-        var caretakerModel = new CaretakerModel(recordDto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(caretakerService.save(caretakerModel));
+    public ResponseEntity<ApiGlobalResponseDto> saveCaretaker(@RequestBody @Valid CaretakerRecordDto recordDto){
+        var newCaretaker = caretakerService.save(recordDto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(new ApiGlobalResponseDto(newCaretaker));
     }
 
     @GetMapping
-    public ResponseEntity<List<CaretakerModel>> getAllCaretaker(){
-        return ResponseEntity.status(HttpStatus.OK).body(caretakerService.findAll());
+    public ResponseEntity<ApiGlobalResponseDto> getAllCaretaker(){
+        var listCaretaker = caretakerService.findAll();
+        return ResponseEntity.status(HttpStatus.OK).body(new ApiGlobalResponseDto(listCaretaker));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getOneCaretaker(@PathVariable(value = "id") UUID id){
-        Optional<CaretakerModel> caretakerModelOptional = caretakerService.findById(id);
-        if (caretakerModelOptional.isPresent()){
-            return ResponseEntity.status(HttpStatus.OK).body(caretakerModelOptional.get());
-        }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error: Caretaker not found.");
+    public ResponseEntity<ApiGlobalResponseDto> getOneCaretaker(@PathVariable(value = "id") UUID id){
+        CaretakerModel caretakerModel = caretakerService.findById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(new ApiGlobalResponseDto(caretakerModel));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> updateCaretaker(@RequestBody @Valid CaretakerRecordDto recordDto,
+    public ResponseEntity<Object> updateCaretaker(@RequestBody @Valid CaretakerRecordDto dto,
                                                   @PathVariable(value = "id") UUID id){
-        Optional<CaretakerModel> caretakerModelOptional = caretakerService.findById(id);
-        if (caretakerModelOptional.isPresent()){
-            var caretakerModel = caretakerModelOptional.get();
-            BeanUtils.copyProperties(recordDto, caretakerModel);
-            return ResponseEntity.status(HttpStatus.OK).body(caretakerService.save(caretakerModel));
-        }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error: Caretaker not found.");
+        var updatedCaretaker = caretakerService.update(id, dto);
+        return ResponseEntity.status(HttpStatus.OK).body(new ApiGlobalResponseDto(updatedCaretaker));
+
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteCaretaker(@PathVariable(value = "id") UUID id){
-        Optional<CaretakerModel> caretakerModelOptional = caretakerService.findById(id);
-        if (caretakerModelOptional.isPresent()){
-            caretakerService.delete(caretakerModelOptional.get());
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Caretaker deletado com sucesso.");
-        }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error: Caretaker not found.");
+        caretakerService.delete(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }

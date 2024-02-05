@@ -28,7 +28,7 @@ public class CaretakerModel implements Serializable {
     private String gender;
     @Column(nullable = false, length = 11)
     private String phoneNumber;
-    @Column(length = 100)
+    @Column(length = 100, nullable = true)
     private String photoPath;
 
     public CaretakerModel(CaretakerRecordDto dto){

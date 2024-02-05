@@ -6,4 +6,4 @@ import jakarta.validation.constraints.NotNull;
 public record CaretakerRecordDto(@NotBlank @NotNull String name,
                                  @NotBlank @NotNull String gender,
                                  @NotBlank @NotNull String phoneNumber,
-                                 @NotBlank String photoPath) {}
+                                 String photoPath) {}
