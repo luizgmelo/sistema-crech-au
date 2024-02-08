@@ -31,7 +31,10 @@ public class PetService {
         return petRepository.save(petModel);
     }
 
-    public List<PetModel> findAll() {
+    public List<PetModel> findAll(String search) {
+        if (search != null){
+            return petRepository.findAllByNameContainingIgnoreCase(search);
+        }
         return petRepository.findAll();
     }
 

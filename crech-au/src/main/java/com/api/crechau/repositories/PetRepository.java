@@ -11,6 +11,6 @@ import java.util.UUID;
 @Repository
 public interface PetRepository extends JpaRepository<PetModel, UUID> {
     List<PetModel> findAllByCaretaker(CaretakerModel caretakerModel);
-
+    List<PetModel> findAllByNameContainingIgnoreCase(String search);
 
 }

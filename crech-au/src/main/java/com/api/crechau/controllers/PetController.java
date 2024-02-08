@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/pet")
+@RequestMapping("/api/pet")
 public class PetController {
     @Autowired
     PetService petService;
@@ -24,8 +24,8 @@ public class PetController {
     }
 
     @GetMapping
-    public ResponseEntity<ApiGlobalResponseDto> getAllPet(){
-        var listPet = petService.findAll();
+    public ResponseEntity<ApiGlobalResponseDto> getAllPet(@RequestParam(required = false) String search){
+        var listPet = petService.findAll(search);
         return ResponseEntity.status(HttpStatus.OK).body(new ApiGlobalResponseDto(listPet));
     }
 

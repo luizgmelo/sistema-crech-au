@@ -26,11 +26,11 @@ public class PetModel implements Serializable {
     @Column(nullable = false, length = 50)
     private String breed;
     @Column(nullable = false, length = 3)
-    private double weight;
+    private Double weight;
     @Column(nullable = false, length = 3)
     private Integer age;
     @Column(nullable = false)
-    private boolean isSociable;
+    private Boolean isSociable;
     @ManyToOne
     @JoinColumn(
             name = "caretaker_id"

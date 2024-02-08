@@ -18,7 +18,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/caretaker")
+@RequestMapping("/api/caretaker")
 public class CaretakerController {
     @Autowired
     CaretakerService caretakerService;
@@ -30,8 +30,8 @@ public class CaretakerController {
     }
 
     @GetMapping
-    public ResponseEntity<ApiGlobalResponseDto> getAllCaretaker(){
-        var listCaretaker = caretakerService.findAll();
+    public ResponseEntity<ApiGlobalResponseDto> getAllCaretaker(@RequestParam(required = false) String search){
+        var listCaretaker = caretakerService.findAll(search);
         return ResponseEntity.status(HttpStatus.OK).body(new ApiGlobalResponseDto(listCaretaker));
     }
 

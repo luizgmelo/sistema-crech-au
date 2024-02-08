@@ -28,7 +28,10 @@ public class CaretakerService {
         return caretakerRepository.save(newCaretaker);
     }
 
-    public List<CaretakerModel> findAll(){
+    public List<CaretakerModel> findAll(String search){
+        if (search != null){
+            return caretakerRepository.findAllByNameContainingIgnoreCase(search);
+        }
         return caretakerRepository.findAll();
     }
 
