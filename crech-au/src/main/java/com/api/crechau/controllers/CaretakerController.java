@@ -1,20 +1,15 @@
 package com.api.crechau.controllers;
 
 import com.api.crechau.dtos.CaretakerRecordDto;
-import com.api.crechau.exceptions.ResourceNotFoundException;
 import com.api.crechau.models.CaretakerModel;
 import com.api.crechau.services.CaretakerService;
 import com.api.crechau.utils.ApiGlobalResponseDto;
 import jakarta.validation.Valid;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @RestController

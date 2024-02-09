@@ -1,6 +1,5 @@
 package com.api.crechau.dtos;
 
-import com.api.crechau.models.CaretakerModel;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
