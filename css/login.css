@@ -1,0 +1,68 @@
+@import url(variables.css);
+
+body {
+    background-color: var(--blue-bg-login);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.title {
+    margin: 80px;
+    text-align: center;
+    color: var(--skin-color);
+}
+
+.container {
+    background-color: var(--light-grey);
+    width: 500px;
+    height: 450px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.form-field {
+    width: 350px;
+    height: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.inputs {
+    width: 250px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-indent: 10px;
+}
+
+.username-field, .password-field {
+    width: 250px;
+}
+
+.btn {
+  background-color: var(--rose);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.buttons-field {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
