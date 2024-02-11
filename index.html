@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sistema Crech'Au</title>
-  <link rel="stylesheet" href="css/index.css">
-</head>
-<body>
-  <h1 class="bem-vindo">Bem-vindo ao Sistema Crech'Au</h1>
-  <div class="container">
-    <div class="menu">
-      <div class="card">
-        <img src="images/human-head.png" alt="Cuidadores"><br>
-        <a class="menu-items" href="pages/pet-sitter.html">Cuidadores</a>
-      </div>
-      <div class="card">
-        <img src="images/pet-head.png" alt="Pets"><br>
-        <a class="menu-items" href="pages/pets.html">Pets</a>
-      </div>
-      <div class="card">
-        <img src="images/pet-head-non-friendly.png" alt="Pets não amigavéis"><br>
-        <a class="menu-items" href="pages/pets-non-friendly.html">Pets<br><span class="no-friendly">não amigavéis</span></a>
-      </div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/login.css">
+    <title>Login - Sistema Crech'Au</title>
+  </head>
+  <body>
+    <h1 class="title">Sistema Crech'Au</h1>
+    <div class="container">
+      <form id="form" class="form-field">
+        <div class="username-field">
+          <label for="username">Usúario</label><br>
+          <input class="inputs" id="username" type="text" placeholder="Usúario">
+        </div>
+        
+        <div class="password-field">
+          <label for="password">Senha</label><br>
+          <input class="inputs" id="password" type="password" placeholder="Senha">
+        </div>
+
+        <div class="buttons-field">
+          <input class="btn" type="submit" value="Entrar">
+          <p>ou</p>
+          <button class="btn" type="button">Cadastrar-se</button>
+        </div>
+      </form>
     </div>
-  </div>
-  <img class="logo" src="images/logo.png" alt="logo">
-</body>
+  </body>
 </html>
