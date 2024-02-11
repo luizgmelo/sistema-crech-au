@@ -55,6 +55,9 @@ body {
   border-radius: 4px;
   padding: 10px;
   cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 500;
+  text-decoration: none;
 }
 
 .btn:hover {
