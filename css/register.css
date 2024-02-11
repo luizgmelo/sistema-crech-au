@@ -1,0 +1,15 @@
+@import url(variables.css);
+@import url(login.css);
+
+.title {
+    margin: 50px;
+}
+
+.container {
+    height: 600px;
+}
+
+.btn {
+    margin-top: 20px;
+}
+
